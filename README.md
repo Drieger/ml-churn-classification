@@ -34,3 +34,37 @@ usage, and interactions with the business, to predict the likelihood of a custom
 customer, enabling the bank to prioritize retention efforts and implement targeted interventions for those
 identified as most likely to churn.  This predictive capability will be crucial for proactively mitigating
 customer attrition and maximizing customer lifetime value.
+
+
+## Data understanding
+
+The dataset, provided as a CSV file, contains over 10,000 client observations. The original file included the following attributes:
+
+- **CLIENTNUM**: Unique client identification number.
+- **Attrition_Flag**: Customer activity status (Attrited Customer/Current Customer).
+- **Customer_Age**: Customer age in years.
+- **Gender**: Customer gender (M/F).
+- **Dependent_count**: Number of dependents.
+- **Education_Level**: Educational qualification.
+- **Marital_Status**: Marital status (Married, Single, Divorced, Unknown).
+- **Income_Category**: Annual income category (< $40,000, $40,000 - $60,000, $60,000 - $80,000, $80,000 - $120,000, > $120,000, Unknown).
+- **Card_Category**: Card type (Blue, Silver, Gold, Platinum).
+- **Months_on_book**: Relationship tenure with the bank.
+- **Total_Relationship_Count**: Number of products held.
+- **Month_Inactive_12_mon**: Inactive months in the last 12 months.
+- **Contacts_Count_12_mon**: Contacts in the last 12 months.
+- **Credit_Limit**: Credit limit.
+- **Total_Revolving_Bal**: Revolving balance.
+- **Avg_Open_To_Buy**: Average open-to-buy credit.
+- **Total_Amt_Chng_Q4_Q1**: Change in transaction amount (Q4/Q1).
+- **Total_Trans_Amt**: Total transaction amount (last 12 months).
+- **Total_Trans_Ct**: Total transaction count (last 12 months).
+- **Total_Ct_Chng_Q4_Q1**: Change in transaction count (Q4/Q1).
+- **Avg_Utilization_Ratio**: Average credit card utilization rate.
+- **Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_1**: Naive Bayes classification.
+- **Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_2**: Naive Bayes classification.
+
+The initial dataset contained three columns deemed irrelevant for the analysis and were subsequently removed:
+- 'CLIENTNUM',
+- 'Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_1', and
+- 'Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_2'."
