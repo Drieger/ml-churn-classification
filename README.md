@@ -78,3 +78,5 @@ Subsequently, the `describe` method was employed to generate a summary of descri
 Following the initial data quality assessment, we proceeded to analyze each column, beginning with the categorical features. We visualized the distribution of values within each categorical column, stratifying the analysis by 'Attrited Customers' and 'Current Customers' to understand their respective representations relative to the target variable.
 
 ![categorical distribution](img/categorical_distribution.png)
+
+As we can observe, classes are imbalanced with much more _Current Customer_ observations than _Attrited Customers_. This distribution is expected once you most clients remains or the business wouldn't thrive.
