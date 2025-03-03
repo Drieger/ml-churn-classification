@@ -119,3 +119,7 @@ The _Months Inactive in the Last 12 Months_ variable revealed a subtle differenc
 ![contacts 12 months distribution](img/numeric_distribution_contacts_count_12_mon.png)
 
 The _Number of Contacts in the Last 12 Months_ variable revealed a notable difference between the _Attrited Customer_ and _Current Customer_ groups. _Attrited Customers_ exhibited a higher frequency of contacts, potentially indicating dissatisfaction. The majority of _Attrited Customers_ had 2 to 4 contacts within the past year, whereas _Current Customers_ primarily had 2 to 3 contacts, with a concentration at the 2 contacts level.
+
+![credit limit](img/numeric_distribution_credit_limit.png)
+
+The _Credit Limit_ variable exhibited a highly similar distribution between the _Current Customer_ and _Attrited Customer_ groups, with _Current Customers_ demonstrating a marginally higher overall credit limit. Notably, the distribution is heavily skewed towards lower values, indicating a significantly larger client base with lower credit limits. However, a distinct client segment with substantially higher credit limits deviates from this pattern. This warrants further in-depth analysis to elucidate the criteria for these elevated credit limits.
