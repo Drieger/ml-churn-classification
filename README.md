@@ -110,6 +110,10 @@ The _Months on Book_ variable demonstrated a similar distribution across both _C
 
 The _Total Relationship Count_, denoting the number of products held by a client, reveals a subtle distributional difference between _Attrited Customers_ and _Current Customers_. Approximately 50% of _Attrited Customers_ possess 3 or fewer products, with a concentration primarily between 2 and 3. Conversely, the median for _Current Customers_ is 4, indicating that 50% of these clients hold 4 or fewer products, with the highest density observed above 3 products.
 
-![inactive 12 months](img/numeric_distribution_inactive_12_mon.png)
+![inactive 12 months distribution](img/numeric_distribution_inactive_12_mon.png)
 
 The _Months Inactive in the Last 12 Months_ variable revealed a subtle difference between the _Attrited Customer_ and _Current Customer_ groups. _Attrited Customers_ exhibited a slightly higher number of inactive months, with the majority experiencing 2 to 3 months of inactivity within the past year. In contrast, _Current Customers_ showed a lower concentration of clients at higher inactivity periods, with 50% experiencing 2 or fewer inactive months, and 75% distributed between 1 and 3 months.
+
+![contacts 12 months distribution](img/numeric_distribution_contacts_count_12_mon.png)
+
+The _Number of Contacts in the Last 12 Months_ variable revealed a notable difference between the _Attrited Customer_ and _Current Customer_ groups. _Attrited Customers_ exhibited a higher frequency of contacts, potentially indicating dissatisfaction. The majority of _Attrited Customers_ had 2 to 4 contacts within the past year, whereas _Current Customers_ primarily had 2 to 3 contacts, with a concentration at the 2 contacts level.
