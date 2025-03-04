@@ -120,6 +120,34 @@ The _Months Inactive in the Last 12 Months_ variable revealed a subtle differenc
 
 The _Number of Contacts in the Last 12 Months_ variable revealed a notable difference between the _Attrited Customer_ and _Current Customer_ groups. _Attrited Customers_ exhibited a higher frequency of contacts, potentially indicating dissatisfaction. The majority of _Attrited Customers_ had 2 to 4 contacts within the past year, whereas _Current Customers_ primarily had 2 to 3 contacts, with a concentration at the 2 contacts level.
 
-![credit limit](img/numeric_distribution_credit_limit.png)
+![credit limit distribution](img/numeric_distribution_credit_limit.png)
 
 The _Credit Limit_ variable exhibited a highly similar distribution between the _Current Customer_ and _Attrited Customer_ groups, with _Current Customers_ demonstrating a marginally higher overall credit limit. Notably, the distribution is heavily skewed towards lower values, indicating a significantly larger client base with lower credit limits. However, a distinct client segment with substantially higher credit limits deviates from this pattern. This warrants further in-depth analysis to elucidate the criteria for these elevated credit limits.
+
+![total revolving balance distribution](img/numeric_distribution_total_revolving_balance.png)
+
+The _Total Revolving Balance_ variable reveals a notable distributional difference between _Current Customers_ and _Attrited Customers_. While both groups exhibit a concentration of clients with low revolving balances, _Current Customers_ demonstrate a denser distribution at higher values, primarily between 750 and 1750. Conversely, approximately 50% of _Attrited Customers_ maintain a revolving balance close to zero. This observation is counterintuitive, as one might hypothesize that customer attrition would correlate with higher revolving balances due to potential financial strain.
+
+![average open to buy distribution](img/numeric_distribution_avg_open_to_buy.png)
+
+The _Average Open to Buy_ variable exhibits a similar distribution across both _Current Customer_ and _Attrited Customer_ groups, with a skew towards lower values. Both classes present comparable median values, suggesting that this variable, in isolation, may have limited utility for client classification.
+
+![total amount change Q4 and Q1 distribution](img/numeric_distribution_total_amt_change_q4_q1.png)
+
+The _Total Amount Change Q4 to Q1_ variable reveals a subtle distributional difference between the _Attrited Customer_ and _Current Customer_ groups. _Attrited Customers_ exhibit a dispersed distribution towards the lower end, with the majority ranging from 0.6 to 0.8, and outliers extending to 1.5 and some instances of 0. Conversely, _Current Customers_ show no instances of 0 change, with the majority concentrated between 0.7 and 0.85, and a higher prevalence of outliers reaching values close to 3.5.
+
+![total transaction amount distribution](img/numeric_distribution_total_trans_amt.png)
+
+The _Total Transaction Amount_ variable also reveals a distributional difference between the groups. _Attrited Customers_ exhibit a concentration at lower values, with a median of 2500, and outliers extending to approximately 10500. The majority of _Attrited Customers_ are concentrated between 2250 and 2750. In contrast, _Current Customers_ demonstrate a generally higher transaction amount, with a median of nearly 5000 and the majority ranging from 2500 to 5000. Outliers in this group reach values exceeding 17500
+
+![total transction count distribution](img/numeric_distribution_total_trans_ct.png)
+
+The _Total Transaction Count_ variable displays the most pronounced difference between the two customer groups. _Attrited Customers_ exhibit a distribution skewed towards lower values, with a median of approximately 45 and the majority of clients concentrated between 40 and 50 transactions. Conversely, _Current Customers_ demonstrate a median of nearly 80, with the majority concentrated between 60 and 80 transactions. This indicates that _Attrited Customers_ tend to perform significantly fewer transactions than _Current Customers_.
+
+![total count change q4 and q1 distribution](img/numeric_distribution_total_ct_change_q4_q1.png)
+
+The _Total Count Change Q4 to Q1_ variable demonstrates a similar distributional pattern between the two customer groups. However, _Attrited Customers_ exhibit a skew towards lower values, with a median close to 0.5, while _Current Customers_ have a median near 0.75. Additionally, _Current Customers_ display a higher frequency of outliers, with some exceeding values greater than 3.5.
+
+![avg utilization ratio distribution](img/numeric_distribution_avg_utilization_ratio.png)
+
+The 'Average Utilization Ratio' variable corroborates the findings observed in the 'Transaction Count' variable. 'Attrited Customers' exhibit significantly lower utilization ratios, with a median very close to zero and 75% of clients at or below 0.2. Conversely, 'Current Customers' display virtually no observations at 0, a median near 0.2, and the majority of clients ranging from 0.1 to 0.6. The distribution of 'Current Customers' also reveals an absence of outliers.
