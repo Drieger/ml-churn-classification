@@ -71,12 +71,55 @@ The initial dataset contained three columns deemed irrelevant for the analysis a
 
 ### Exploratory analysis
 
+#### Data description and quality assessment
+
 The initial step involved assessing data quality to determine the necessity of addressing null values or duplicate observations. Upon inspection, the dataset was found to contain neither missing values nor duplicate entries.
 
 Subsequently, the `describe` method was employed to generate a summary of descriptive statistics and distributional characteristics for the numeric columns. This analysis confirmed the absence of erroneous values, such as negative values, across all columns. Notably, the numeric attributes exhibited significant variations in scale, suggesting the potential need for data normalization or standardization.
+
+#### Categorical variables
 
 Following the initial data quality assessment, we proceeded to analyze each column, beginning with the categorical features. We visualized the distribution of values within each categorical column, stratifying the analysis by 'Attrited Customers' and 'Current Customers' to understand their respective representations relative to the target variable.
 
 ![categorical distribution](img/categorical_distribution.png)
 
-As we can observe, classes are imbalanced with much more _Current Customer_ observations than _Attrited Customers_. This distribution is expected once you most clients remains or the business wouldn't thrive.
+The dataset exhibits a class imbalance, with a significantly higher proportion of _Current Customer_ observations compared to _Attrited Customers_. This imbalance is typical, as a healthy business generally retains a larger customer base.
+
+Regarding _gender_, the client population is relatively balanced between males and females, and there appears to be no significant difference in attrition rates between these groups.
+
+Analysis of _education level_ reveals that the majority of customers possess a Graduate degree or lower. However, the proportion of _Attrited Customers_ mirrors the overall class distribution, indicating no specific educational level is associated with higher churn. _Marital status_ also follows the general class distribution, with 'Married' and 'Divorced' customers representing the majority in both 'Current Customer' and _Attrited Customer_ categories.
+
+In terms of _income category_, the majority of customers fall within the lower income brackets. However, the distribution of _Attrited Customers_ does not show any prominent peaks across income categories.
+
+Finally, the _card category_ distribution demonstrates that a large proportion of customers hold lower-tier cards, with minimal representation of premium cardholders. Similar to other categorical variables, no specific card category appears to exhibit a significantly higher churn rate
+
+#### Numeric variables
+Following the analysis of categorical variables, we explored the numeric features. Similar to the previous approach, we visualized the distribution of each numeric variable, segmented by _Current Customers_ and _Attrited Customers_. The objective was to identify any significant differences in distribution patterns between these groups and to uncover any notable data variations.
+
+![age distribution](img/numeric_distribution_age.png)
+
+Customer age exhibited no discernible difference between the 'Current Customer' and 'Attrited Customer' groups. The age distribution closely approximates a Gaussian distribution in both cases, with an overall mean of approximately 46 years and a standard deviation of 8 years.
+
+![dependent count distribution](img/numeric_distribution_dependent_count.png)
+
+The dependent count also showed no significant distributional differences between the _Current Customer_ and _Attrited Customer_ groups. The majority of customers have 2 to 3 dependents. _Attrited Customers_ exhibited a more concentrated distribution, with fewer observations at 0 or 1 dependents, whereas _Current Customers_ displayed a more dispersed distribution._ Despite these variations, both groups maintained a median dependent count of 2.
+
+![months on book distribution](img/numeric_distribution_months_on_book.png)
+
+The _Months on Book_ variable demonstrated a similar distribution across both _Current Customer_ and _Attrited Customer_ groups, resembling a Gaussian distribution. Both classes exhibited comparable medians and density patterns. Notably, the histogram revealed a prominent peak at 36 months for both groups, indicating a significantly higher concentration of clients within this tenure period. This observation warrants further in-depth analysis to ascertain whether it stems from potential data anomalies or reflects distinct client profile characteristics during this specific timeframe.
+
+![relationship count distribution](img/numeric_distribution_total_relationship_count.png)
+
+The _Total Relationship Count_, denoting the number of products held by a client, reveals a subtle distributional difference between _Attrited Customers_ and _Current Customers_. Approximately 50% of _Attrited Customers_ possess 3 or fewer products, with a concentration primarily between 2 and 3. Conversely, the median for _Current Customers_ is 4, indicating that 50% of these clients hold 4 or fewer products, with the highest density observed above 3 products.
+
+![inactive 12 months distribution](img/numeric_distribution_inactive_12_mon.png)
+
+The _Months Inactive in the Last 12 Months_ variable revealed a subtle difference between the _Attrited Customer_ and _Current Customer_ groups. _Attrited Customers_ exhibited a slightly higher number of inactive months, with the majority experiencing 2 to 3 months of inactivity within the past year. In contrast, _Current Customers_ showed a lower concentration of clients at higher inactivity periods, with 50% experiencing 2 or fewer inactive months, and 75% distributed between 1 and 3 months.
+
+![contacts 12 months distribution](img/numeric_distribution_contacts_count_12_mon.png)
+
+The _Number of Contacts in the Last 12 Months_ variable revealed a notable difference between the _Attrited Customer_ and _Current Customer_ groups. _Attrited Customers_ exhibited a higher frequency of contacts, potentially indicating dissatisfaction. The majority of _Attrited Customers_ had 2 to 4 contacts within the past year, whereas _Current Customers_ primarily had 2 to 3 contacts, with a concentration at the 2 contacts level.
+
+![credit limit](img/numeric_distribution_credit_limit.png)
+
+The _Credit Limit_ variable exhibited a highly similar distribution between the _Current Customer_ and _Attrited Customer_ groups, with _Current Customers_ demonstrating a marginally higher overall credit limit. Notably, the distribution is heavily skewed towards lower values, indicating a significantly larger client base with lower credit limits. However, a distinct client segment with substantially higher credit limits deviates from this pattern. This warrants further in-depth analysis to elucidate the criteria for these elevated credit limits.
