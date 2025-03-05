@@ -151,3 +151,35 @@ The _Total Count Change Q4 to Q1_ variable demonstrates a similar distributional
 ![avg utilization ratio distribution](img/numeric_distribution_avg_utilization_ratio.png)
 
 The 'Average Utilization Ratio' variable corroborates the findings observed in the 'Transaction Count' variable. 'Attrited Customers' exhibit significantly lower utilization ratios, with a median very close to zero and 75% of clients at or below 0.2. Conversely, 'Current Customers' display virtually no observations at 0, a median near 0.2, and the majority of clients ranging from 0.1 to 0.6. The distribution of 'Current Customers' also reveals an absence of outliers.
+
+#### Exploring _Months on Book_
+
+The 'Months on Book' variable revealed an anomalous concentration of customers at the 36-month mark.
+
+To investigate this phenomenon, we conducted a focused analysis of customers with precisely 36 months of tenure. This subset did not exhibit significant deviations from the overall dataset. A plausible hypothesis is that the business executed a targeted customer acquisition campaign during that specific month. The success of this campaign warrants further investigation, as this strategy may prove beneficial for future implementation.
+
+#### Exploring _Credit Limit_
+
+The 'Credit Limit' variable revealed a different behaviou for clients with high credit limits, while the overall tendency was to have a lower number of clients when the credit limit increased this wasn't true for the higher class limit class.
+
+![high credit limit categorical analysis](img/categorical_distribution_credit_limit.png)
+
+Analyzing the categorical variables for clients with high credit limits reveals notable differences compared to the overall dataset.
+
+Firstly, a gender imbalance is evident within this segment. While the overall distribution demonstrates a balance between males and females, the high-credit customer base is predominantly male, with a distribution of 93% male and 7% female.
+
+Secondly, the income category distribution is skewed towards higher earners. Within the high-credit segment, no customers fall below the $60k-$80k income bracket, and the majority reside in the $80k-$120k and above $120k categories.
+
+Thirdly, the card category distribution, while still showing a concentration in lower-tier cards, indicates that 15 out of the 20 Platinum cardholders are high-credit customers.
+
+![high credit limit age distribution](img/numeric_distribution_age_credit_limit.png)
+
+The age distribution of high credit limit clients exhibits a higher concentration compared to the overall dataset. While the mean age for both datasets is approximately 46 years, the standard deviation for high credit limit clients is two years lower than that of the overall population.
+
+![high credit limit credit limit distribution](img/numeric_distribution_credit_limit_credit_limit.png)
+
+The mean credit limit for clients in the high credit limit category was $34,511, compared to the overall mean of $7,469. This represents a 4.6-fold increase. Additionally, the standard deviation for the high credit limit group was approximately $42, while the overall standard deviation was $9,090.
+
+Of the 10,127 customers analyzed, only 517 belonged to the high credit limit segment, representing approximately 5% of the total customer base. This highlights the exclusivity and concentration of this client segment.
+
+## Data preparation
