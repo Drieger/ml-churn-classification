@@ -162,7 +162,7 @@ To investigate this phenomenon, we conducted a focused analysis of customers wit
 
 The 'Credit Limit' variable revealed a different behaviou for clients with high credit limits, while the overall tendency was to have a lower number of clients when the credit limit increased this wasn't true for the higher class limit class.
 
-![high creadit limit categorical analysis](img/categorical_distribution_credit_limit.png)
+![high credit limit categorical analysis](img/categorical_distribution_credit_limit.png)
 
 Analyzing the categorical variables for clients with high credit limits reveals notable differences compared to the overall dataset.
 
@@ -171,3 +171,13 @@ Firstly, a gender imbalance is evident within this segment. While the overall di
 Secondly, the income category distribution is skewed towards higher earners. Within the high-credit segment, no customers fall below the $60k-$80k income bracket, and the majority reside in the $80k-$120k and above $120k categories.
 
 Thirdly, the card category distribution, while still showing a concentration in lower-tier cards, indicates that 15 out of the 20 Platinum cardholders are high-credit customers.
+
+![high credit limit age distribution](img/numeric_distribution_age_credit_limit.png)
+
+The age distribution of high credit limit clients exhibits a higher concentration compared to the overall dataset. While the mean age for both datasets is approximately 46 years, the standard deviation for high credit limit clients is two years lower than that of the overall population.
+
+![high credit limit credit limit distribution](img/numeric_distribution_credit_limit_credit_limit.png)
+
+The mean credit limit for clients in the high credit limit category was $34,511, compared to the overall mean of $7,469. This represents a 4.6-fold increase. Additionally, the standard deviation for the high credit limit group was approximately $42, while the overall standard deviation was $9,090.
+
+Of the 10,127 customers analyzed, only 517 belonged to the high credit limit segment, representing approximately 5% of the total customer base. This highlights the exclusivity and concentration of this client segment.
