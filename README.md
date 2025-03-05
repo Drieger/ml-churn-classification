@@ -181,3 +181,5 @@ The age distribution of high credit limit clients exhibits a higher concentratio
 The mean credit limit for clients in the high credit limit category was $34,511, compared to the overall mean of $7,469. This represents a 4.6-fold increase. Additionally, the standard deviation for the high credit limit group was approximately $42, while the overall standard deviation was $9,090.
 
 Of the 10,127 customers analyzed, only 517 belonged to the high credit limit segment, representing approximately 5% of the total customer base. This highlights the exclusivity and concentration of this client segment.
+
+## Data preparation
