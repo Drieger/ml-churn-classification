@@ -1,8 +1,6 @@
 # Save my business - Churn prediction
 
-Churn prediction is a critical aspect of business analytics, as it focuses on identifying customers who are
-likely to discontinue their use of a product or service. This is particularly important because the cost of
-acquiring new customers often outweighs the cost of retaining existing ones
+Churn prediction is a critical aspect of business analytics, as it focuses on identifying customers who are likely to discontinue their use of a product or service. This is particularly important because the cost of acquiring new customers often outweighs the cost of retaining existing ones
 
 By accurately predicting which customers are at risk of churning, businesses can proactively intervene with targeted retention strategies, personalized offers, or improved customer support. This not only helps to reduce customer churn and protect revenue streams but also provides valuable insights into customer behavior and preferences, enabling businesses to enhance their products, services, and overall customer experience.
 
@@ -22,18 +20,9 @@ By accurately predicting which customers are at risk of churning, businesses can
 
 ## Business understanding
 
-Customer churn, the rate at which customers discontinue their relationship with a business, represents a
-significant challenge impacting revenue and profitability.  This project aims to understand the drivers of
-churn and develop effective retention strategies. A high churn rate necessitates increased customer
-acquisition efforts, which are generally more expensive than retaining existing customers.  Therefore,
-minimizing churn is crucial for sustainable growth and maximizing customer lifetime value.
+Customer churn, the rate at which customers discontinue their relationship with a business, represents a significant challenge impacting revenue and profitability.  This project aims to understand the drivers of churn and develop effective retention strategies. A high churn rate necessitates increased customer acquisition efforts, which are generally more expensive than retaining existing customers.  Therefore, minimizing churn is crucial for sustainable growth and maximizing customer lifetime value.
 
-The data objective of this project is to develop a predictive model capable of identifying customers at high
-risk of churn. This model will leverage customer data, including demographics, transaction history, product
-usage, and interactions with the business, to predict the likelihood of a customer discontinuing their relationship with this business.  The output of the model will be a churn probability score for each
-customer, enabling the bank to prioritize retention efforts and implement targeted interventions for those
-identified as most likely to churn.  This predictive capability will be crucial for proactively mitigating
-customer attrition and maximizing customer lifetime value.
+The data objective of this project is to develop a predictive model capable of identifying customers at high risk of churn. This model will leverage customer data, including demographics, transaction history, product usage, and interactions with the business, to predict the likelihood of a customer discontinuing their relationship with this business.  The output of the model will be a churn probability score for each customer, enabling the bank to prioritize retention efforts and implement targeted interventions for those identified as most likely to churn.  This predictive capability will be crucial for proactively mitigating customer attrition and maximizing customer lifetime value.
 
 
 ## Data understanding
@@ -203,3 +192,91 @@ Data leakage in machine learning occurs when a model uses information during tra
 To mitigate _target leakage_, we previously removed any columns or information that would not be available during future predictions.
 
 To prevent _train-test contamination_, we initially partitioned the original dataset into training and testing sets. Subsequently, the `OneHotEncoder` and `MinMaxScaler` were fitted exclusively on the training data and then utilized solely for transforming the testing data.
+
+
+## Modeling
+
+Our objective is to develop a predictive model capable of identifying customers at high risk of churn, which necessitates classifying customers as potential churners. To achieve this, we selected and evaluated two classification models:
+
+* **_Logistic Regression_**: Logistic regression is a supervised machine learning algorithm commonly used for binary classification tasks, specifically in our case, to distinguish between 'Attrited Customers' and 'Current Customers'. This method employs the logistic (or sigmoid) function to transform a linear combination of input features into a probability value between 0 and 1. This probability represents the likelihood that an input belongs to one of two predefined categories.
+
+* **_Random Forest Classifier_**: Random forest, an ensemble learning method, is utilized for classification, regression, and other tasks. It operates by constructing multiple decision trees during the training phase. For classification, the random forest's output is determined by the class voted for by the majority of trees. For regression, it outputs the average of the trees' predictions. Random forests effectively mitigate the tendency of decision trees to overfit the training data.
+
+Prior to training, the target variable, _Attrition_Flag_, was encoded using a `LabelEncoder`. Subsequently, the dataset was partitioned into training and testing sets using the `train_test_split` function from the `scikit-learn` library. The dataset was split with 20% allocated to the testing set and 80% to the training set.
+
+```
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=.2, stratify=y, random_state=99)
+```
+
+#### Handling imbalance
+
+As observed during the analysis phase, the dataset exhibited a class imbalance, with a significantly higher number of _Current Customer_ samples compared to _Attrited Customer_ samples. Machine learning algorithms, designed to optimize overall accuracy, tend to favor the majority class. Consequently, the minority class is often underrepresented during training, leading to biased predictions and poor generalization for the minority class.
+
+To address this issue, we employed an oversampling technique. In machine learning, oversampling increases the number of samples in the underrepresented class to mitigate class imbalance. This technique aims to rectify the bias introduced when one class significantly outweighs another. We selected the Synthetic Minority Oversampling Technique (SMOTE), specifically the implementation from the `imbalanced-learn` library.
+
+SMOTE operates by identifying closely located examples in the feature space, drawing a line between them, and generating a new synthetic sample along that line. Specifically, a random example from the minority class is chosen, and its k nearest neighbors (typically k=5) are identified. A randomly selected neighbor is used to create a synthetic example at a random point between the two examples in feature space.
+
+The oversampling was applied exclusively to the training set, resulting in a balanced dataset between _Current Customer_ and _Attrited Customer_ samples.
+
+#### Training and evaluation
+
+Both models were trained using the same dataset and default hyperparameters. Following training, each model was evaluated against the testing dataset, and the confusion matrix was computed. Subsequently, Accuracy, Precision, Recall, and the F1-Score were calculated.
+
+![logistic regression confusion matrix](img/logistic_regression_confusion_matrix.png)
+
+<table style="text-align: center">
+	<tr>
+		<th>Class</th>
+		<th>Precision</th>
+		<th>Recall</th>
+		<th>F1-Score</th>
+	</tr>
+	<tr>
+		<td><i>Attrited Customer</i></td>
+		<td>0.50</td>
+		<td>0.84</td>
+		<td>0.63</td>
+	</tr>
+	<tr>
+		<td><i>Current Customer</i></td>
+		<td>0.96</td>
+		<td>0.84</td>
+		<td>0.90</td>
+	</tr>
+	<tr>
+		<td style="border-top: 2px solid; font-weight: bold">Overall Acurracy</td>
+		<td style="border-top: 2px solid; font-weight: bold" colspan="3">0.84</td>
+	</tr>
+</table>
+
+
+The first model evaluated was Logistic Regression. The overall accuracy was 84%, indicating a strong ability to predict results correctly. However, an individual analysis of the metrics reveals that the precision was only 50%. This signifies that among all positive predictions (churn), only 50% were actually true positives. Consequently, the model exhibits a high propensity to incorrectly classify clients as churners.
+
+![random forest confusion matrix](img/random_forest_confusion_matrix.png)
+
+<table style="text-align: center">
+	<tr>
+		<th>Class</th>
+		<th>Precision</th>
+		<th>Recall</th>
+		<th>F1-Score</th>
+	</tr>
+	<tr>
+		<td><i>Attrited Customer</i></td>
+		<td>0.84</td>
+		<td>0.88</td>
+		<td>0.86</td>
+	</tr>
+	<tr>
+		<td><i>Current Customer</i></td>
+		<td>0.98</td>
+		<td>0.97</td>
+		<td>0.97</td>
+	</tr>
+	<tr>
+		<td style="border-top: 2px solid; font-weight: bold">Overall Acurracy</td>
+		<td style="border-top: 2px solid; font-weight: bold" colspan="3">0.95</td>
+	</tr>
+</table>
+
+The Random Forest Classifier also exhibited high accuracy, achieving a score of 95%. Analyzing the individual metrics revealed a superior performance compared to Logistic Regression, particularly in precision. Random Forest demonstrated a significantly higher precision of 84% in the _Attrited Customer_ class.
