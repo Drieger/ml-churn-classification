@@ -280,3 +280,21 @@ The first model evaluated was Logistic Regression. The overall accuracy was 84%,
 </table>
 
 The Random Forest Classifier also exhibited high accuracy, achieving a score of 95%. Analyzing the individual metrics revealed a superior performance compared to Logistic Regression, particularly in precision. Random Forest demonstrated a significantly higher precision of 84% in the _Attrited Customer_ class.
+
+Analyzing the ROC-AUC of the Random Forest Classifier reveals a high score of 0.93. The ROC-AUC, a value between 0.0 and 1.0, quantifies a binary classification model's ability to distinguish between positive and negative classes. A score closer to 1.0 indicates superior class separation.
+
+![roc-auc](img/random_forest_roc_auc.png)
+
+#### Feature importance
+
+After analysing the data, training and evaluating a model, it is important to understand which feature are more important when predicting if a client is a possible churn so we can work on these features. Using the property `feature_importances_` from the _Random Forest Classifier_ we were able to plot the 15 most important features.
+
+![features importance](img/random_forest_features%20importance.png)
+
+As observed, _Total_Trans_Cnt_, _Total_Trans_Amt_, and _Total_Revolving_Bal_ emerged as the most influential features. Notably, customer transaction activity appears to be a critical factor in predicting churn. By focusing on customer transaction patterns, the business may be able to effectively mitigate churn rates. Clients exhibiting low transaction counts, infrequent service utilization, or small transfer amounts are significantly more prone to attrition. This observation aligns with findings from the analysis phase, where _Total_Trans_Cnt_ demonstrated a clear distinction between _Attrited Customers_ and _Current Customers_.
+
+## Evaluation
+
+Through this project we were able to analyse data from a business that was facing
+
+#### How to improve the
