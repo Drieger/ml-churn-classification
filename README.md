@@ -9,11 +9,13 @@ By accurately predicting which customers are at risk of churning, businesses can
 ## Project structure
 
 ```
+├─ data/
 ├─ img/
 ├─ models/
 ├─ notebooks/
 ```
 
+`data`: the data and data dictionary used during the project <br />
 `img`: images used to document this project <br />
 `models`: serialized models <br />
 `notebooks`: notebooks used during analysis and model training <br />
