@@ -287,7 +287,7 @@ Analyzing the ROC-AUC of the Random Forest Classifier reveals a high score of 0.
 
 #### Feature importance
 
-After analysing the data, training and evaluating a model, it is important to understand which feature are more important when predicting if a client is a possible churn so we can work on these features. Using the property `feature_importances_` from the _Random Forest Classifier_ we were able to plot the 15 most important features.
+Following data analysis, model training, and evaluation, it is crucial to identify the most influential features for predicting customer churn. This allows for targeted strategies to mitigate attrition. Utilizing the `feature_importances_` attribute of the Random Forest Classifier, we generated a visualization of the 15 most significant features.
 
 ![features importance](img/random_forest_features%20importance.png)
 
@@ -295,6 +295,21 @@ As observed, _Total_Trans_Cnt_, _Total_Trans_Amt_, and _Total_Revolving_Bal_ eme
 
 ## Evaluation
 
-Through this project we were able to analyse data from a business that was facing
+Through this project, we successfully analyzed data from a business experiencing increasing churn rates. The analysis revealed distinct characteristics of clients within the _Attrited Customer_ and _Current Customer_ groups. Subsequently, we trained a predictive model capable of accurately classifying customers as churners, achieving high accuracy and precision, thereby fulfilling the project_s data objective.
 
-#### How to improve the
+During the analysis phase, two variables exhibited unusual behavior, prompting further investigation:
+
+_Months_on_book_: The analysis identified a significant concentration of customers at the 36-month tenure mark. Despite in-depth analysis, no differentiating patterns were found within this group. While no specific characteristics were identified, it appears a past initiative during that period effectively attracted a large number of new clients, suggesting this strategy could be replicated in the future.
+
+_Credit_limit_: A concentration of clients with high credit limits was observed. Further analysis revealed a gender imbalance within this segment, with a disproportionately high number of male clients. This raises potential concerns regarding bias in credit limit allocation. It is recommended to review the credit limit determination process, as the overall client population does not exhibit a similar gender imbalance.
+
+#### Next Steps
+
+This project evaluated only two classifiers: Logistic Regression and Random Forest. Future iterations should assess additional classifiers and compare their performance using the same evaluation metrics. Furthermore, despite the achieved results, hyperparameter tuning should be performed to optimize model performance.
+
+
+## Deployment
+
+This project does not encompass the deployment of models in a production environment. The deployment phase, in this context, involves storing serialized models within the designated 'models' folder. The `pickle` library will be used to serialize and persist the trained models to disk. Additionally, the preprocessing transformer, essential for preparing new data for prediction, will be stored within the same folder.
+
+This approach facilitates convenient storage and potential future utilization of the trained models. However, it is crucial to recognize that this represents a simplified deployment strategy. For production-level deployment, comprehensive considerations such as model serving, version control, performance monitoring, and security protocols would be indispensable.
