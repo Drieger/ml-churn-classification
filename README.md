@@ -183,3 +183,23 @@ The mean credit limit for clients in the high credit limit category was $34,511,
 Of the 10,127 customers analyzed, only 517 belonged to the high credit limit segment, representing approximately 5% of the total customer base. This highlights the exclusivity and concentration of this client segment.
 
 ## Data preparation
+
+As the original dataset contained no missing values or duplicates, our data preparation focused on encoding categorical features and scaling numeric features. This is essential to prevent algorithms from assigning undue importance to variables with larger numerical values.
+
+For categorical encoding, we employed `OneHotEncoder` on the following variables: _Gender_, _Education_Level_, _Marital_Status_, _Income_Category_, and _Card_Category_. To optimize resource utilization, one column was dropped for binary variables, effectively reducing redundancy.
+
+Numeric variables were scaled using `MinMaxScaler`, ensuring all numeric values were transformed to a uniform range between 0 and 1.
+
+![column transformer](img/column_transformer.png)
+
+#### Handling data leakage
+
+Data leakage in machine learning occurs when a model uses information during training that wouldn't be available at the time of prediction. Leakage causes a predictive model to look accurate until deployed in its use case; then, it will yield inaccurate results, leading to poor decision-making and false insights.
+
+* **_Target leakage_**: Models include data that will not be available when the model is used to make predictions. Using information that won't be available during real-world predictions leads to overfitting, where the model performs exceptionally well on training and validation data but poorly in production.
+
+* **_Train-test contamination_**: When both training and validation data are used to create a model, often due to improper splitting or preprocessing.
+
+To mitigate _target leakage_, we previously removed any columns or information that would not be available during future predictions.
+
+To prevent _train-test contamination_, we initially partitioned the original dataset into training and testing sets. Subsequently, the `OneHotEncoder` and `MinMaxScaler` were fitted exclusively on the training data and then utilized solely for transforming the testing data.
